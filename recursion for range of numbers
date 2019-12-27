@@ -1,0 +1,25 @@
+
+
+function rangeOfNumbers(startNum, endNum) {
+  //when end number is equal to startnum, this is our base
+  if (endNum - startNum === 0) {
+  //The function should return an array of integers which begins with a number represented by the startNum parameter
+    return [startNum];
+  } else {
+  
+  //The function should return an array of integers which begins with a number represented by the startNum parameter
+  //and ends with a number represented by the endNum parameter.
+    var numbers = rangeOfNumbers(startNum, endNum - 1);
+    numbers.push(endNum);
+    return numbers;
+  }
+}
+
+console.log(rangeOfNumbers(5,9));
+
+//or this one
+function rangeOfNumbers(startNum, endNum) {
+  return startNum === endNum
+    ? [startNum]
+    : rangeOfNumbers(startNum, endNum - 1).concat(endNum);
+}
